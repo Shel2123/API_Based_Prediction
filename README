@@ -6,3 +6,7 @@ for go backend:
  go run go_api/main.go
 for python frontend:
  python web/main.py
+
+OR
+
+ docker compose up --build
