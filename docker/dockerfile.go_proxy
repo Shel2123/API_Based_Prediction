@@ -1,0 +1,12 @@
+FROM golang:1.25-alpine
+
+WORKDIR /app
+
+COPY go_api/go.mod go_api/go.sum ./
+RUN go mod download
+
+COPY ./go_api/*.go ./
+RUN go build -o server .
+
+EXPOSE 9090
+CMD ["./server"]

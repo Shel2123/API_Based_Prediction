@@ -43,7 +43,7 @@ func predict(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "marshal error: " + err.Error()})
 		return
 	}
-	resp, err := http.Post("http://localhost:8000/predict", "application/json", bytes.NewReader(body))
+	resp, err := http.Post("http://python-api:8000/predict", "application/json", bytes.NewReader(body))
 	if err != nil {
 		c.JSON(http.StatusBadGateway, gin.H{"error": "Failed to contact Python server"})
 		return
@@ -62,7 +62,7 @@ func predict(c *gin.Context) {
 func main() {
 	router := gin.Default()
 	router.POST("/go_api/predict", predict)
-	err := router.Run("localhost:9090")
+	err := router.Run("0.0.0.0:9090")
 
 	if err != nil {
 		return

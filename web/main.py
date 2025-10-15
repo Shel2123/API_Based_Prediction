@@ -32,4 +32,4 @@ def main_page():
     ui.button("Submit", on_click=controller.on_submit)
 
 if __name__ in {"__main__", "__mp_main__"}:
-    ui.run()
+    ui.run(host="0.0.0.0", port=8080, title="Customer Credit Prediction", reload=True)

@@ -1,0 +1,33 @@
+services:
+  python-api:
+    build:
+      context: .
+      dockerfile: docker/dockerfile.python_api
+    container_name: python-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data:ro
+    restart: unless-stopped
+
+  go-proxy:
+    build:
+      context: .
+      dockerfile: docker/dockerfile.go_proxy
+    container_name: go-proxy
+    depends_on:
+      - python-api
+    ports:
+      - "9090:9090"
+    restart: unless-stopped
+
+  ui:
+    build:
+      context: .
+      dockerfile: docker/dockerfile.ui
+    container_name: ui
+    depends_on:
+      - go-proxy
+    ports:
+      - "8080:8080"
+    restart: unless-stopped

@@ -1,6 +1,6 @@
 import requests
 
-BASE_URL = "http://localhost:9090"
+BASE_URL = "http://go-proxy:9090"
 
 def submission(age: int, gender: str, has_house: str, marital_status: str, income: float):
     url_prediction = f"{BASE_URL}/go_api/predict"
