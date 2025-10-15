@@ -1,0 +1,8 @@
+pip install -r requirements.txt
+
+for python backend:
+ uvicorn python_api.app:app --host 127.0.0.1 --port 8000 --reload
+for go backend:
+ go run go_api/main.go
+for python frontend:
+ python web/main.py
