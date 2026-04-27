@@ -58,3 +58,7 @@ go run go_api/main.go
 # Frontend
 python web/main.py
 ```
+
+## Stack
+
+Python · FastAPI · scikit-learn · Go · Gin · Docker · Docker Compose · Jupyter
